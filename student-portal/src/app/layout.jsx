@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import '@/styles/style.css';
+import '../styles/style.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

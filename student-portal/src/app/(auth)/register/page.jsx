@@ -1,12 +1,12 @@
 "use client"
 import React, { createRef, useState } from 'react'
 
+import VALUES from "../../../constants/initialValues"
+import { registrationValidation } from "../../../constants/validation"
+import AuthInput from "../../../components/shared/form/auth-input"
 import Link from 'next/link'
-import AuthInput from '@/components/shared/form/auth-input';
 import { useRouter } from 'next/navigation';
 import { Formik } from 'formik';
-import VALUES from "@/constants/initialValues.js"
-import { registrationValidation } from "@/constants/validation.js"
 
 const SignUp = () => {
     const router = useRouter();

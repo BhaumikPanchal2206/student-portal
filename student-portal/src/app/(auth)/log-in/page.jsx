@@ -2,10 +2,10 @@
 import React from 'react'
 
 import Link from 'next/link'
-import AuthInput from '@/components/shared/form/auth-input';
 import { Formik } from 'formik';
-import VALUES from "@/constants/initialValues.js"
-import { logInValidation } from "@/constants/validation.js"
+import VALUES from "../../../constants/initialValues"
+import { logInValidation } from "../../../constants/validation"
+import AuthInput from "../../../components/shared/form/auth-input"
 
 const LogIn = () => {
 

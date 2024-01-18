@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 
 // constants and interfaces
-import Header from '@/components/header';
-import SideBar from '@/components/side-bar';
+import Header from '../../components/header';
+import SideBar from '../../components/side-bar';
 
 
 const RootLayout = ({ children }) => {

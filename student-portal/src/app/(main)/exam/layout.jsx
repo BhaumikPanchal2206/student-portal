@@ -1,4 +1,4 @@
-import ExamHeader from "@/components/exam/header";
+import ExamHeader from "../../../components/exam/header";
 
 
 const RootLayout = ({ children }) => {

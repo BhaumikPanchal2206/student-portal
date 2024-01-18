@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-import InputComponent from '@/components/shared/form/input-component'
+import InputComponent from '../../../components/shared/form/input-component'
 import { toast } from 'react-toastify'
 
 
