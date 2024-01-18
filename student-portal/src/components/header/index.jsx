@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 
 import SVG from "react-inlinesvg"
-import ConfirmationModal from '../shared/confirmation-modal';
+import ConfirmationModal from '../shared/pop-up/confirmation-modal';
+import LogOut from '../shared/pop-up/log-out';
 
 const Header = ({ isDark, setIsDark }) => {
     const [show, setShow] = useState(false);
+
+
     return (
         <>
             <div className="fixed w-full flex items-center justify-between h-14 text-white z-10 bg-blue-800">
@@ -19,7 +22,7 @@ const Header = ({ isDark, setIsDark }) => {
                 <div className="flex justify-between items-center h-14 bg-blue-800 dark:bg-gray-800 header-right">
                     <div className="bg-white rounded flex items-center w-full max-w-xl mr-4 p-2 shadow-sm border border-gray-200">
                         <button className="outline-none focus:outline-none">
-                            <SVG src='assets/icons/search.svg' />
+                            <SVG src='/assets/icons/search.svg' />
                         </button>
                         <input
                             type="search"
@@ -32,11 +35,14 @@ const Header = ({ isDark, setIsDark }) => {
                     <ul className="flex items-center">
                         <li>
                             <button
-                                onClick={() => setIsDark((pre) => !pre)}
+                                onClick={() => {
+                                    setIsDark((pre) => !pre)
+                                    localStorage.setItem("theme", isDark ? "light" : "dark")
+                                }}
                                 aria-hidden="true"
                                 className="group p-2 transition-colors duration-200 rounded-full shadow-md bg-blue-200 hover:bg-blue-200 dark:bg-gray-50 dark:hover:bg-gray-200 text-gray-900 focus:outline-none"
                             >
-                                {isDark ? <SVG src='assets/icons/star.svg' /> : <SVG src='assets/icons/night.svg' />}
+                                {isDark ? <SVG src='/assets/icons/star.svg' /> : <SVG src='/assets/icons/night.svg' />}
                             </button>
                         </li>
                         <li>
@@ -47,7 +53,7 @@ const Header = ({ isDark, setIsDark }) => {
                                 onClick={() => setShow(true)}
                                 className="flex items-center mr-4 hover:text-blue-100 cursor-pointer">
                                 <span className="inline-flex mr-1">
-                                    <SVG src='assets/icons/logout.svg' />
+                                    <SVG src='/assets/icons/logout.svg' />
                                 </span>
                                 Logout
                             </div>
@@ -55,7 +61,8 @@ const Header = ({ isDark, setIsDark }) => {
                     </ul>
                 </div>
             </div>
-            <ConfirmationModal show={show} setShow={setShow} type="logout" />
+            {/* <ConfirmationModal show={show} setShow={setShow} type="logout" /> */}
+            <LogOut show={show} setShow={setShow} />
         </>
     )
 }

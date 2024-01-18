@@ -1,11 +1,52 @@
 "use client"
-import React, { useState } from 'react'
+import React from 'react'
+
+const dashboard_greet = {
+    "first": [
+        { title: "Class", description: <>12 <sup> th</sup></> },
+        { title: "Division", description: "B" },
+    ],
+    second: [
+        { title: "Enrollment Number", description: "2204030102106" },
+        { title: <>Attendance<div>(last month)</div></>, description: "80%" },
+    ]
+}
 
 const Dashboard = () => {
-    const [show, setShow] = useState(false)
 
     return (
         <>
+            <section className="text-gray-600 dark:text-white body-font pt-10 px-4">
+                <div className="mx-auto">
+                    <div className="p-5 bg-white dark:bg-gray-800 flex items-center !mx-auto border-b  mb-10 border-gray-200 dark:border-gray-800 rounded-lg sm:flex-row flex-col">
+                        <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center flex-shrink-0">
+                            <img
+                                alt=''
+                                src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg" />
+                        </div>
+                        <div className="flex-grow sm:text-left text-center mt-6 sm:mt-0">
+                            <h1 className="text-black dark:text-gray-100 text-lg md:text-2xl title-font font-bold mb-2">Welcome , Bhaumik Panchal</h1>
+                            <div className='lg:flex items-center sm:text-center font-bold text-gray-800'>
+                                {Object.keys(dashboard_greet).map((ele, index) => (
+                                    <div key={index} className='w-full sm:flex items-center'>
+                                        {dashboard_greet[ele].map((item, i) => (
+                                            <div key={index} className="w-full md:w-1/2 lg:w-full xl:w-1/4 mb-4 mx-auto">
+                                                <h2 className="text-gray-500 dark:text-gray-100">
+                                                    {item.title}
+                                                </h2>
+                                                <p className='dark:text-gray-100'>{item.description}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
                 <div className="bg-blue-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
                     <div className="flex justify-center items-center w-14 h-14 bg-white rounded-full transition-all duration-300 transform group-hover:rotate-12">
@@ -408,7 +449,7 @@ const Dashboard = () => {
                                         <svg className="h-4 fill-current mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M11 4c-3.855 0-7 3.145-7 7v28c0 3.855 3.145 7 7 7h28c3.855 0 7-3.145 7-7V11c0-3.855-3.145-7-7-7zm0 2h28c2.773 0 5 2.227 5 5v28c0 2.773-2.227 5-5 5H11c-2.773 0-5-2.227-5-5V11c0-2.773 2.227-5 5-5zm25.234 9.832l-13.32 15.723-8.133-7.586-1.363 1.465 9.664 9.015 14.684-17.324z" /></svg>
                                         3/5
                                     </span>
-                                    <img src="https://i.imgur.com/OZaT7jl.png" className="rounded-full" />
+                                    {/* <img alt='' src="https://i.imgur.com/OZaT7jl.png" className="rounded-full" /> */}
                                 </div>
                             </div>
                             <div className="bg-white dark:bg-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded mt-1 border-b border-gray-100 dark:border-gray-900 cursor-pointer">Check the meta tags</div>
@@ -483,7 +524,7 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div className="mt-4 mx-4">
+            {/* <div className="mt-4 mx-4">
                 <div className="w-full overflow-hidden rounded-lg shadow-xs">
                     <div className="w-full overflow-x-auto">
                         <table className="w-full">
@@ -500,7 +541,7 @@ const Dashboard = () => {
                                     <td className="px-4 py-3">
                                         <div className="flex items-center text-sm">
                                             <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                <img className="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE3Nzg0fQ" alt="" loading="lazy" />
+                                                <img alt="" className="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjE3Nzg0fQ" loading="lazy" />
                                                 <div className="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                                             </div>
                                             <div>
@@ -519,7 +560,7 @@ const Dashboard = () => {
                                     <td className="px-4 py-3">
                                         <div className="flex items-center text-sm">
                                             <div className="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                <img className="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;facepad=3&amp;fit=facearea&amp;s=707b9c33066bf8808c934c8ab394dff6" alt="" loading="lazy" />
+                                                <img alt="" className="object-cover w-full h-full rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=200&amp;facepad=3&amp;fit=facearea&amp;s=707b9c33066bf8808c934c8ab394dff6" loading="lazy" />
                                                 <div className="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                                             </div>
                                             <div>
@@ -640,7 +681,7 @@ const Dashboard = () => {
                         </span>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="mt-8 mx-4">
                 <div className="grid grid-cols-1 md:grid-cols-2">
